@@ -1,0 +1,14 @@
+.bg-light-green {
+    background: rgba(76, 175, 80, 0.2);
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.pic-size {
+    height: 60px;
+    width: 60px;
+}
+
+.pointer {
+    cursor: pointer;
+}
