@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CategoryService from '../../services/CategoryService';
 import ProductService from '../../services/ProductService';
 
 class ManageProduct extends Component {
@@ -38,56 +37,56 @@ class ManageProduct extends Component {
                     <div className="col-4 col-sm-3 col-md-2 col-xl-1 text-center my-auto">
                         <img className="img-fluid pic-size" src={product.image} alt={product.name}/>
                     </div>
-                    <div className="col-4 col-sm-5 col-md-5 col-xl-6 ml-1 my-auto">
+                    <div className="col-5 col-sm-6 col-md-6 col-xl-7 my-auto">
                         <strong className="text-size">{product.name}</strong>
                     </div>
                     <div className="col-3 col-sm-3 col-md-4 my-auto">
-                        <div className="text-danger float-right ml-4 pointer" data-toggle="tooltip" data-placement="top" title="Delete" onClick={this.handleDelete}>
+                        <div className="text-danger float-right mx-3 pointer p-2" data-toggle="tooltip" data-placement="top" title="Delete" onClick={this.handleDelete}>
                             <i className="material-icons">delete_forever</i>
                         </div>
-                        <div className="text-primary float-right pointer" data-toggle="tooltip" data-placement="top" title="Edit" data-toggle="collapse" data-target={'#'+product.id}>
+                        <div className="text-primary float-right mx-3 pointer p-2" data-toggle="tooltip" data-placement="top" title="Edit" data-toggle="collapse" data-target={'#'+product.id}>
                             <i className="material-icons">edit</i>
                         </div>
                     </div>
                 </div>
-                <div id={product.id} className="collapse justify-content-between mt-1" data-parent="#accordion">
+                <div id={product.id} className="collapse justify-content-between mt-1" data-parent="#accordion1">
                     <hr/>
                     <form>
-                        <div className="form-group row">
-                            <div className="col-6">
+                        <div className="row">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Product Name</label>
                                 <input className="form-control" type="text" value={product.name} name="name" onChange={this.handleChange}/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Image URL</label>
                                 <input className="form-control" type="text" value={product.image} name="image" onChange={this.handleChange}/>
                             </div>
                         </div>
-                        <div className="form-group row">
-                            <div className="col-6">
+                        <div className="row">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Brand Name</label>
                                 <input className="form-control" type="text" value={product.brand} name="brand" onChange={this.handleChange}/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Manufacturer</label>
                                 <input className="form-control" type="text" value={product.manufacturer} name="manufacturer" onChange={this.handleChange}/>
                             </div>
                         </div>
-                        <div className="form-group row">
-                            <div className="col-6">
+                        <div className="row">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Price</label>
-                                <input className="form-control" type="text" value={product.price} name="price" onChange={this.handleChange}/>
+                                <input className="form-control" type="text" value={product.price.toFixed(2)} name="price" onChange={this.handleChange}/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-12 col-md-6 my-2">
                                 <label>Category Name</label>
-                                <select className="form-control" name="categoryName" defaultValue={product.categoryName} onChange={this.handleChange}>
+                                <select className="form-control" name="categoryName" id="categoryName" defaultValue={product.categoryName} onChange={this.handleChange}>
                                     {this.state.categories.map((category)=>(
-                                        <option key={category.id}>{category.name}</option>
+                                        <option key={category.id} value={category.name}>{category.name}</option>
                                     ))}
                                 </select>
                             </div>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group my-2">
                             <button className="btn btn-success" onClick={this.handleUpdate}>Update</button>
                         </div>
                     </form>

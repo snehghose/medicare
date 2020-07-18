@@ -47,6 +47,22 @@ class ProductService {
             method:'DELETE'
         })
     }
+
+    async getDiscountedProducts() {
+        const response=await fetch(URI+'/discount');
+        if(response.status===200)
+        return await response.json();
+        else
+        alert(response.statusText)
+    }
+
+    async getNonDiscountedProducts() {
+        const response=await fetch(URI+'/no-discount');
+        if(response.status===200)
+        return await response.json();
+        else
+        alert(response.statusText)
+    }
 }
 
 export default new ProductService();

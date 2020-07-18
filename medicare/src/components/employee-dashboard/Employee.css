@@ -20,3 +20,15 @@
 .pointer {
     cursor: pointer;
 }
+
+  .badge.badge-success {
+    background-color: #fff
+  }
+
+  .badge {
+    padding: 6px;
+    border: 1px solid transparent;
+    text-align: center;
+    vertical-align: middle;
+    border-color:green;
+  }

@@ -47,7 +47,7 @@ class Product extends Component{
                     <div className="col-12">
                         <span className="font-size-14 font-weight-500">₹{value}</span>
                         <span className="font-size-14 text-muted"><small><s>&nbsp;₹{product.price}</s></small></span>
-                        <span className="badge badge-success float-right"> {product.discount}% off </span>
+                        <span className="badge badge-success text-success float-right"> {product.discount}% OFF </span>
                     </div>
                 </div>
                 <button className="btn btn-info mt-2" onClick={this.handleAddToCart}>

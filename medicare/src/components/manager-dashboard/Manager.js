@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Manager.css';
 import ManageEmployees from './manage-employees/ManageEmployees';
 
-const Manager = () => (
-    <>
+class Manager extends Component {
+    render() {
+        return (
     <div className="container mt-2 mb-5">
-    <div className="row">
-        <div className="col-12 col-md-6">
-            <h4>Managers</h4>
+    <div className="row justify-content-center">
+        <div className="col-5 my-auto">
+            <h4>Welcome!!!</h4>
         </div>
-        <div className="col-12 col-md-6 text-right">
-            <div className="btn text-light btn-success">Add new employee</div>
+        <div className="col-7 text-right my-auto">
+            <div className="btn text-light btn-success">Add Employee</div>
         </div>
     </div>
 <div className="mb-4">
     <hr/>
 </div>
 
-<div className="row">
-    <div className="col-12" >
-        <div className="container" >
-
-            <ManageEmployees/>
-            <ManageEmployees/>
-            <ManageEmployees/>
-
-
-        </div>
-    </div>
+<div className="row mb-3">
+                    <span className="ml-5">
+                        <h4>Manage Employees</h4>
+                    </span>
+                    <span className="float-right ml-auto mr-5 pointer">
+                        <i className="material-icons">playlist_add</i> Add
+                    </span>
+                </div>
+            <div id="accordion2">
+                <ul className="list-group">
+                    <ManageEmployees/>
+                </ul>
+            </div>
 </div>
-</div>
-</>
 )
+        }
+    }
 
 export default Manager;

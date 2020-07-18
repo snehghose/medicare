@@ -3,7 +3,7 @@ import React from 'react';
 const ManageEmployees=()=>{
     return (
         <div>
-            <a class="manager-head" role="button" data-toggle="collapse" href="#100">
+            {/* <a class="manager-head" role="button" data-toggle="collapse" href="#100">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -55,7 +55,7 @@ const ManageEmployees=()=>{
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

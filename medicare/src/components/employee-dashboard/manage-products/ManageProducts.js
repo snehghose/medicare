@@ -31,72 +31,72 @@ class ManageProducts extends Component {
     render() {
         const products=this.state.products;
         return (
-          <div>
-            <div className="row mb-3">
-              <span className="ml-5">
-                <h4>Products</h4>
-              </span>
-              <span className="float-right ml-auto mr-5 pointer"  data-toggle="collapse" data-target={'#'+2}>
-                <i className="material-icons">playlist_add</i> Add
-              </span>
-            </div>
-            <ul className="list-group">
-            <li id={"2"} className="list-group-item list-group-item-action collapse justify-content-between mt-1">
-                  <form>
-                    <div className="form-group">
-                        <h5>Add New Product</h5>
-                    </div>
-                    <hr/>
-                    <div className="form-group row">
-                            <div className="col-6">
-                                <label>Product Name</label>
-                                <input className="form-control" type="text" name="name" onChange={this.handleChange}/>
+            <div>
+                <div className="row mb-3">
+                    <span className="ml-5">
+                        <h4>Products</h4>
+                    </span>
+                    <span className="float-right ml-auto mr-5 pointer"  data-toggle="collapse" data-target="#add-product">
+                        <i className="material-icons">playlist_add</i> Add
+                    </span>
+                </div>
+                <ul className="list-group">
+                    <li id="add-product" className="list-group-item list-group-item-action collapse justify-content-between mt-1">
+                        <form>
+                            <div className="form-group">
+                                <h5>Add New Product</h5>
                             </div>
-                            <div className="col-6">
-                                <label>Image URL</label>
-                                <input className="form-control" type="text" name="image" onChange={this.handleChange}/>
+                            <hr/>
+                            <div className="row">
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Product Name</label>
+                                    <input className="form-control" type="text" name="name" onChange={this.handleChange}/>
+                                </div>
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Image URL</label>
+                                    <input className="form-control" type="text" name="image" onChange={this.handleChange}/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="form-group row">
-                            <div className="col-6">
-                                <label>Brand Name</label>
-                                <input className="form-control" type="text" name="brand" onChange={this.handleChange}/>
+                            <div className="row">
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Brand Name</label>
+                                    <input className="form-control" type="text" name="brand" onChange={this.handleChange}/>
+                                </div>
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Manufacturer</label>
+                                    <input className="form-control" type="text" name="manufacturer" onChange={this.handleChange}/>
+                                </div>
                             </div>
-                            <div className="col-6">
-                                <label>Manufacturer</label>
-                                <input className="form-control" type="text" name="manufacturer" onChange={this.handleChange}/>
+                            <div className="row">
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Price</label>
+                                    <input className="form-control" type="text" name="price" onChange={this.handleChange}/>
+                                </div>
+                                <div className="col-12 col-md-6 my-2">
+                                    <label>Category Name</label>
+                                    <select className="form-control" name="categoryName" id="categoryName" onChange={this.handleChange}>
+                                        {this.state.categories.map((category)=>(
+                                            <option key={category.id} value={category.name}>{category.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div className="form-group row">
-                            <div className="col-6">
-                                <label>Price</label>
-                                <input className="form-control" type="text" name="price" onChange={this.handleChange}/>
+                            <div className="form-group my-2">
+                                <button className="btn btn-success" onClick={this.handleAdd} data-toggle="collapse">Add</button>
                             </div>
-                            <div className="col-6">
-                                <label>Category Name</label>
-                                <select className="form-control" name="categoryName" onChange={this.handleChange}>
-                                    {this.state.categories.map((category)=>(
-                                        <option key={category.id} value={category.name}>{category.name}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <button className="btn btn-success" onClick={this.handleAdd}  data-toggle="collapse">Add</button>
-                        </div>
-                  </form>
-                </li>
-            </ul>
-            <div id="accordion">
-              <ul className="list-group">
-                {products.map(product=>(
-                  <ManageProduct key={product.id} product={product} categories={this.state.categories}/>
-                ))}
-              </ul>
-            </div>
+                        </form>
+                    </li>
+                </ul>
+                <div id="accordion1">
+                    <ul className="list-group">
+                        {products.map(product=>(
+                            <ManageProduct key={product.id} product={product} categories={this.state.categories}/>
+                        ))}
+                    </ul>
+                </div>
             </div>
         )
-      }
+    }
 }
 
 export default ManageProducts;

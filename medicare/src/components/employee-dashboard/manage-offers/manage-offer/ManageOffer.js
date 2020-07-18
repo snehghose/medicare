@@ -1,44 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../../Employee.css'
+import ProductService from '../../../services/ProductService';
 
-const ManageOffer = (props) => {
-    const product=props.product;
-    return(
-        <li className="list-group-item list-group-item-action" data-toggle="collapse" 
-        data-target={"#1"+product.id}>
-            <div className="row">
-                <div className="col-5 my-auto">{product.name}</div>
-                <div className="col-3 my-auto text-center text-success">
-                    {product.offer.discount}% off
+class ManageOffer extends Component {
+    constructor(props) {
+        super(props)
+        this.state={product:this.props.product}
+        this.handleChange=this.handleChange.bind(this)
+        this.handleUpdate=this.handleUpdate.bind(this)
+        this.handleDelete=this.handleDelete.bind(this)
+    }
+
+    handleChange(event) {
+        event.preventDefault()
+        var product=this.state.product;
+        product.discount=event.target.value;
+        product.discountPrice=(100-product.discount)*product.price/100;
+        this.setState({product:product})
+    }
+
+    async handleUpdate(event) {
+        event.preventDefault()
+        await ProductService.updateProduct(this.state.product)
+        window.location.reload(false)
+    }
+
+    async handleDelete(event) {
+        event.preventDefault()
+        var product=this.state.product
+        product.discount=0;
+        product.discountPrice=product.price;
+        await ProductService.updateProduct(product)
+        window.location.reload(false)
+    }
+
+    render() {
+        const product=this.state.product;
+        return(
+            <li className="list-group-item list-group-item-action">
+                <div className="row">
+                  <div className="col-5 my-auto text-size"><strong>{product.name}</strong></div>
+                    <div className="col-4 my-auto text-center">
+                        <span className="badge badge-success text-success">{product.discount.toFixed(1)}% OFF</span>
+                    </div>
+                    <div className="col-3 my-auto p-1 text-center">
+                        <div className="pointer text-danger mx-3 p-2 float-right pointer" data-toggle="tooltip" title="Delete" onClick={this.handleDelete}>
+                            <i className="material-icons">delete_forever</i>
+                        </div>
+                        <div className="text-primary pointer mx-3 p-2 float-right pointer" data-toggle="tooltip" title="Edit" data-toggle="collapse" data-target={"#offer"+product.id}>
+                            <i className="material-icons">edit</i>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-2">
-                    <button className="btn btn-link float-right">
-                        <i className="material-icons">edit</i>
-                    </button>
+                <div id={"offer"+product.id} className="collapse justify-content-between mt-1" data-parent="#accordion2">
+                    <hr/>
+                    <form>
+                        <div className="form-group row">
+                            <div className="col-12 col-md-6 my-2">
+                                <label>Discount</label>
+                                <div className="input-group">
+                                    <input className="form-control" type="text" defaultValue={product.discount} name="discount" onChange={this.handleChange}/>
+                                    <div className="input-group-append">
+                                        <div className="input-group-text">% off</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 my-2">
+                                <label>Discounted Price</label>
+                                <input className="form-control" type="text" disabled={true} value={this.state.product.discountPrice.toFixed(2)} name="discountPrice"/>
+                            </div>
+                        </div>
+                        <div className="form-group my-2">
+                            <button className="btn btn-success" onClick={this.handleUpdate}  data-toggle="collapse">Update</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="col-2">
-                    <button className="btn btn-link text-danger">
-                        <i className="material-icons">delete_forever</i>
-                    </button>
-                </div>
-            </div>
-            <div id={"1"+product.id} className="collapse row justify-content-between mt-1" data-parent="#accordion">
-                <div className="col-6 col-md-4 col-lg-3">
-                  <div>
-                    <strong>Category Name</strong>
-                  </div>
-                  <div>{product.name}</div>
-                </div>
-                <div className="col-6 col-md-4 col-lg-3">
-                  <div>
-                    <strong>Image</strong>
-                  </div>
-                  <div>{product.offer.discount}% off</div>
-                </div>
-              </div>
-                        </li>
-        
-        
-    )
+            </li>  
+        )
+    }
 }
 
 export default ManageOffer;
