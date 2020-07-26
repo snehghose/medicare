@@ -1,0 +1,35 @@
+.nav-link.nav-color.active{
+    background-color: #17a2b8 !important;
+    color: white !important;
+}
+
+.nav-link.nav-color {
+    color: #2896b8 !important;
+    font-size: 20px;
+}
+
+.pic-size {
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+.text-size {
+    font-size: large;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+  .badge.badge-success {
+    background-color: #fff
+  }
+
+  .badge {
+    padding: 6px;
+    border: 1px solid transparent;
+    text-align: center;
+    vertical-align: middle;
+    border-color:green;
+  }

@@ -1,0 +1,5 @@
+.pic {
+    background-image: url('../../../assets/images/banner.jpg');
+    background-repeat: no-repeat !important;
+    background-size: contain;
+}
