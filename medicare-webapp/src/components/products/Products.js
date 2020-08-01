@@ -16,14 +16,15 @@ class Products extends Component {
 
     render() {
         return(
-            <div className="container middle my-5">
-                
+            <div className="middle">
+                <div className="container mb-5">
                 <div className="row">
                     {this.state.products.map((product)=>(
                         <div key={product.id} className="col-12 col-sm-6 col-lg-4 col-xl-3">
                             <Product key={product.id} product={product} history={this.props.history}/>
                         </div>
                     ))}
+                </div>
                 </div>
             </div>
         )

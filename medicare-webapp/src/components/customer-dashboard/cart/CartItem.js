@@ -39,23 +39,24 @@ class CartItem extends Component{
     render(){
         var quantity=CartService.getQuantity(this.props.item.id)
         console.log(quantity);
+        const product=this.props.item.product;
         
         return (
             <li className="list-group-item">
                 <div className="row">
                     <div className="col-3">
-                        <img className="pic-size" src={this.props.item.product.image} alt={this.props.item.product.name}/>
+                        <img className="pic-size" src={product.image} alt={product.name}/>
                     </div>
                     <div className="col-9">
                         <div className="row">
-                        <div className="col-8">{this.props.item.product.name}</div>
+                        <div className="col-8">{product.name}</div>
                         <div className="col-4">
                             <span className="float-right" onClick={this.handleDeleteItem}><i className="material-icons text-danger">delete_forever</i></span>
                         </div>
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                {this.props.item.product.manufacturer}
+                                {product.manufacturer}
                             </div>
                         </div>
 
@@ -67,11 +68,12 @@ class CartItem extends Component{
                         </div>
                         <div className="col-8 col-sm-3">
                             <span>x</span>
-                            <span className="mx-1">₹{this.props.item.product.discountPrice.toFixed(2)}</span>
-                            <span><small><s className="text-muted">₹{this.props.item.product.price.toFixed(2)}</s></small></span>
+                            <span className="mx-1">₹{product.discountPrice.toFixed(2)}</span>
+                            {product.discountPrice!==product.price &&
+                            <span><small><s className="text-muted">₹{product.price.toFixed(2)}</s></small></span>}
                         </div>
                     <div className="col-12 col-sm-4">
-                        <span className="float-right font-weight-bold text-secondary">₹{(this.props.item.product.discountPrice * this.state.quantity).toFixed(2)}</span>
+                        <span className="float-right font-weight-bold text-secondary">₹{(product.discountPrice * this.state.quantity).toFixed(2)}</span>
                     </div>
                         </div>
                         

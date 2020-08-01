@@ -4,15 +4,11 @@ import CategoryService from '../services/CategoryService';
 
 class Categories extends Component{
     state={categories:[]};
-    //abortController=new AbortController()
 
     async componentDidMount(){
+        console.log(await CategoryService.getAllCategories())
         this.setState({categories:await CategoryService.getAllCategories()})
     }
-
-    // componentWillUnmount(){
-    //     this.abortController.abort()
-    // }
 
     render() {
         return (

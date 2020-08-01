@@ -4,10 +4,9 @@ import './Bill.css';
 
 const Bill=(props)=>{
     const bill=props.bill;
-    var date=new Date(bill.billDate[0],bill.billDate[1]-1,bill.billDate[2],bill.billDate[3],bill.billDate[4]);
+    var date=new Date(bill.billDate)
     var str=date.toLocaleDateString("en",{month:"short",weekday:"short",day:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})
     return (
-            
             <div className="row mb-4"> 
                 <div className="col-12">
                     <li className="list-group-item list-group-item-action">

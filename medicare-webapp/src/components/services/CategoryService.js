@@ -1,8 +1,7 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import AuthService from './AuthService';
 
-const URI="http://localhost:8082/category";
+const URI="http://localhost:9000/easymeds-product-service/category";
 
 class CategoryService {
 

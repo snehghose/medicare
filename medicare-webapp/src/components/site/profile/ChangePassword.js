@@ -59,53 +59,50 @@ class ChangePassword extends Component {
         return (<NotFound/>)
         else
         return (
-            <div className="container middle">
-    <div className="row justify-content-center">
-        <div className="col-sm-12 col-md-8 col-lg-8 col-xl-6">
-        <div className="row ml-1 mb-3">
-                    <h4>
-                    Update Password</h4>
-                </div>
-            <div className="card">
-                
-                <div className="card-body">
-                    <form>
-                        {this.state.check!=null && this.state.check===true && <div className="alert alert-success">
-                            Updated successfully
-                        </div>}
-                        {this.state.check!=null && this.state.check===false && <div className="alert alert-danger">
-                            Invalid Password
-                        </div>}
-
-                        <div className="form-group">
-                            <label>User Id</label>
-                            <input className="form-control" type="text" name="userId" disabled={true} value={this.state.user}/>
+            <div className="middle">
+                <div className="container mb-5">
+                    <div className="row justify-content-center">
+                        <div className="col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                            <div className="row ml-1 mb-3">
+                                <h4>Update Password</h4>
+                            </div>
+                            <div className="card">
+                                <div className="card-body">
+                                    <form>
+                                        {this.state.check!==null && this.state.check===true && <div className="alert alert-success">
+                                            Updated successfully
+                                        </div>}
+                                        {this.state.check!==null && this.state.check===false && <div className="alert alert-danger">
+                                            Invalid Password
+                                        </div>}
+                                        <div className="form-group">
+                                            <label>User Id</label>
+                                            <input className="form-control" type="text" name="userId" disabled={true} value={this.state.user}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Current Password</label>
+                                            <input className="form-control" type="password" placeholder="Enter current password" name="oldPassword" onChange={this.handleChange}/>
+                                            {this.state.errors.oldPassword.length>0 && <small className="text-danger">{this.state.errors.oldPassword}</small>}
+                                        </div>
+                                        <div className="form-group">
+                                            <label>New Password</label>
+                                            <input className="form-control" type="password" placeholder="Enter new password" name="newPassword" onChange={this.handleChange}/>
+                                            {this.state.errors.newPassword.length>0 && <small className="text-danger">{this.state.errors.newPassword}</small>}
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="btn btn-info" onClick={this.handleSubmit}>
+                                                Update
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label>Current Password</label>
-                            <input className="form-control" type="password" placeholder="Enter current password" name="oldPassword" onChange={this.handleChange}/>
-                            {this.state.errors.oldPassword.length>0 && <small className="text-danger">{this.state.errors.oldPassword}</small>}
-                        </div>
-                        <div className="form-group">
-                            <label>New Password</label>
-                            <input className="form-control" type="password" placeholder="Enter new password" name="newPassword" onChange={this.handleChange}/>
-                            {this.state.errors.newPassword.length>0 && <small className="text-danger">{this.state.errors.newPassword}</small>}
-                        </div>
-                        <div className="form-group">
-                                <button type="submit" className="btn btn-info" onClick={this.handleSubmit}>
-                                    Update
-                                </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-</div>
         )
     }
-
 }
 
 export default ChangePassword;

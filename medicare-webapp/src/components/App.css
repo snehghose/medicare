@@ -46,29 +46,32 @@
 }
 
 .footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
-  height: 10px;
+  height: 25px;
 }
 
 .header {
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   right:0;
   width: 100%;
+  z-index: 100;
 }
 
 .middle {
-  position: absolute;
-  top: 80px;
   width: 100%;
   left:0;
   right: 0;
-  bottom: 10px;
   overflow: auto;
 }
+
+/* #navcontent {
+  position: relative;
+  z-index: 1000;
+} */

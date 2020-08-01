@@ -92,73 +92,73 @@ class SignUp extends Component {
     render(){
         var date=(new Date()).toISOString().substring(0,10);
         return(
-            <>
-        <div className="container middle">
-            <div className="row justify-content-center">
-                <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                    <div className="row ml-1 mb-3">
-                        <h3>Sign Up</h3>
-                    </div>
-                    <div className="card mb-2">
-                        <div className="card-body">
-                            <form>
-                                <div className="form-group row">
-                                    <div className="col-12">
-                                        <label for="userId">User ID</label>
-                                        <input className="form-control" type="text" name="userId" placeholder="Enter a username" onChange={this.handleChange}></input>
-                                        {this.state.errors.userId.length>0 && <small className="text-danger">{this.state.errors.userId}</small>}
+            <div className="middle">
+            <div className="container mb-5">
+                <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+                        <div className="row ml-1 mb-3">
+                            <h3>Sign Up</h3>
+                        </div>
+                        <div className="card mb-2">
+                            <div className="card-body">
+                                <form>
+                                    <div className="form-group row">
+                                        <div className="col-12">
+                                            <label for="userId">User ID</label>
+                                            <input className="form-control" type="text" name="userId" placeholder="Enter a username" onChange={this.handleChange}></input>
+                                            {this.state.errors.userId.length>0 && <small className="text-danger">{this.state.errors.userId}</small>}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-12 col-md-6">
-                                        <label for="firstName">First Name</label>
-                                        <input className="form-control" type="text" name="firstName" placeholder="Enter First Name" onChange={this.handleChange}></input>
-                                        {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <label for="firstName">First Name</label>
+                                            <input className="form-control" type="text" name="firstName" placeholder="Enter First Name" onChange={this.handleChange}></input>
+                                            {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
+                                        </div>
+                                        <div className="col-12 col-md-6">
+                                            <label for="lastName">Last Name</label>
+                                            <input className="form-control" type="text" name="lastName" placeholder="Enter Last Name" onChange={this.handleChange}></input>
+                                            {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
+                                        </div>
                                     </div>
-                                    <div className="col-12 col-md-6">
-                                        <label for="lastName">Last Name</label>
-                                        <input className="form-control" type="text" name="lastName" placeholder="Enter Last Name" onChange={this.handleChange}></input>
-                                        {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <label for="dateOfBirth">Date of Birth</label>
+                                            <input className="form-control" type="date" name="dateOfBirth" max={date} onChange={this.handleChange}></input>
+                                            {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
+                                        </div>
+                                        <div className="col-12 col-md-6">
+                                            <label for="contact">Contact Number</label>
+                                            <input className="form-control" type="text" name="contact" placeholder="Enter Contact Number" onChange={this.handleChange}></input>
+                                            {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-12 col-md-6">
-                                        <label for="dateOfBirth">Date of Birth</label>
-                                        <input className="form-control" type="date" name="dateOfBirth" max={date} onChange={this.handleChange}></input>
-                                        {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <label for="password">Password</label>
+                                            <input className="form-control" type="password" name="password" placeholder="Enter Password" onChange={this.handleChange}></input>
+                                            {this.state.errors.password.length>0 && <small className="text-danger">{this.state.errors.password}</small>}
+                                        </div>
+                                        <div className="col-12 col-md-6">
+                                            <label for="confirmPassword">Confirm Password</label>
+                                            <input className="form-control" type="password" name="password2" placeholder="Retype Password" onChange={this.handlePassword}></input>
+                                            {this.state.errors.password2.length>0 && <small className="text-danger">{this.state.errors.password2}</small>}
+                                        </div>
                                     </div>
-                                    <div className="col-12 col-md-6">
-                                        <label for="contact">Contact Number</label>
-                                        <input className="form-control" type="text" name="contact" placeholder="Enter Contact Number" onChange={this.handleChange}></input>
-                                        {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <button className="btn btn-info" onClick={this.handleSubmit}>Sign Up</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-12 col-md-6">
-                                        <label for="password">Password</label>
-                                        <input className="form-control" type="password" name="password" placeholder="Enter Password" onChange={this.handleChange}></input>
-                                        {this.state.errors.password.length>0 && <small className="text-danger">{this.state.errors.password}</small>}
-                                    </div>
-                                    <div className="col-12 col-md-6">
-                                        <label for="confirmPassword">Confirm Password</label>
-                                        <input className="form-control" type="password" name="password2" placeholder="Retype Password" onChange={this.handlePassword}></input>
-                                        {this.state.errors.password2.length>0 && <small className="text-danger">{this.state.errors.password2}</small>}
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-12 col-md-6">
-                                        <button className="btn btn-info" onClick={this.handleSubmit}>Sign Up</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </>
-    )
-        }
+        )
     }
+}
 
 export default SignUp;

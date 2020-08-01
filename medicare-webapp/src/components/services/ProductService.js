@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthService from './AuthService';
 
-const URI = "http://localhost:8082/product";
+const URI = "http://localhost:9000/easymeds-product-service/product";
 
 class ProductService {
 
@@ -91,10 +91,6 @@ class ProductService {
         }
     }
 
-    displayMessage() {
-        document.getElementById('message').innerHTML="Added to Cart successfully";
-        setTimeout(function(){document.getElementById('message').innerHTML=""},3000);
-    }
 }
 
 export default new ProductService();

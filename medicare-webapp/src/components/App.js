@@ -15,29 +15,31 @@ import './App.css'
 import NotFound from './site/not-found/NotFound';
 
 class App extends Component {
-  render() {
-    return (
-        <Router>
-          <Header/>
-          <Switch>
-            <Route path="/" exact={true} component={Customer}/>
-            <Route path="/products/:name" exact={true} component={Products}/>
-            <Route path="/signup" component={SignUp}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/employee" component={Employee}/>
-            <Route path="/manager" component={Manager}/>
-            <Route path="/cart" component={Cart}/>
-            <Route path="/profile" component={Profile}/>
-            <Route path="/change-password" component={ChangePassword}/>
-            <Route path="/purchase-history" component={PurchaseHistory}/>
-            <Route path="/**" component={NotFound}/>
-          </Switch>
-          <nav className="navbar footer navbar-expand-sm text-light bg-info">
-            <small>Copyright &copy; 2020 S.G.</small>
-          </nav>
-        </Router>
-    )
-  }
+    render() {
+        return (
+            <Router>
+                <Header/>
+                <Switch>
+                    <Route path="/" exact={true} component={Customer}/>
+                    <Route path="/products/:name" exact={true} component={Products}/>
+                    <Route path="/signup" component={SignUp}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/employee" component={Employee}/>
+                    <Route path="/manager" component={Manager}/>
+                    <Route path="/cart" component={Cart}/>
+                    <Route path="/profile" component={Profile}/>
+                    <Route path="/change-password" component={ChangePassword}/>
+                    <Route path="/purchase-history" component={PurchaseHistory}/>
+                    <Route path="/**" component={NotFound}/>
+                </Switch>
+                <div className="container-fluid footer text-light bg-info">
+                    <div className="float-right">
+                        <small>Copyright &copy; 2020 S.G.</small>
+                    </div>
+                </div>
+            </Router>
+        )
+    }
 }
 
 export default App;

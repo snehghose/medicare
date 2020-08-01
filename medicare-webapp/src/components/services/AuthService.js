@@ -1,26 +1,8 @@
 import React, { Component } from 'react';
 import UserService from './UserService';
-import { useHistory } from 'react-router-dom';
 
 
-const API_URL="http://localhost:8082/";
-
-// const User = {
-//     userId:'',
-//     firstName:'',
-//     lastName:'',
-//     dateOfBirth:'',
-//     contact:'',
-//     password:'',
-//     role:'',
-//     cart:{},
-//     bills:[]
-// };
-
-// const Auth = { 
-//     role:'',
-//     token:''
-// };
+const API_URL="http://localhost:9000/authentication-service/";
 
 
 class AuthService extends Component{
@@ -35,7 +17,7 @@ class AuthService extends Component{
     }
 
     async signup(user) {
-        const response=await fetch('http://localhost:8082/customer', {
+        const response=await fetch(API_URL+'customer', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -82,7 +64,7 @@ class AuthService extends Component{
     logout() {
         sessionStorage.setItem('user',JSON.stringify(null));
         sessionStorage.setItem('auth',JSON.stringify(null));
-        fetch('http://localhost:8082/logout')
+        fetch(API_URL+'logout')
     }
 
     getCurrentUser() {
