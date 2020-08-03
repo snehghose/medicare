@@ -100,7 +100,7 @@ class ManageCategories extends Component {
                     </li>
                 </ul>
                 <div id="accordion">
-                    <ul className="list-group">
+                    <ul className="list-group mb-5">
                         {categories.map(category=>(
                             <ManageCategory key={category.id} category={category}/>
                         ))}

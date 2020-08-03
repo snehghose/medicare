@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import UserService from './UserService';
 
-
 const API_URL="http://localhost:9000/authentication-service/";
-
 
 class AuthService extends Component{
 
@@ -11,9 +9,6 @@ class AuthService extends Component{
         super(props)
         this.login=this.login.bind(this);
         this.logout=this.logout.bind(this);
-        this.getCurrentAuth=this.getCurrentAuth.bind(this)
-        this.getCurrentUser=this.getCurrentUser.bind(this)
-        this.setCurrentUser=this.setCurrentUser.bind(this)
     }
 
     async signup(user) {
@@ -65,18 +60,6 @@ class AuthService extends Component{
         sessionStorage.setItem('user',JSON.stringify(null));
         sessionStorage.setItem('auth',JSON.stringify(null));
         fetch(API_URL+'logout')
-    }
-
-    getCurrentUser() {
-        return JSON.parse(sessionStorage.getItem('user'));
-    }
-
-    getCurrentAuth() {
-        return JSON.parse(sessionStorage.getItem('auth'));
-    }
-
-    setCurrentUser(newUser) {
-        sessionStorage.setItem('user',JSON.stringify(newUser));
     }
 
 }

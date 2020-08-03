@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthService from './AuthService';
 
 const URI="http://localhost:9000/authentication-service/"
@@ -29,7 +28,7 @@ class CartService {
     async removeItemFromCart(productId) {
         const userId=JSON.parse(sessionStorage.getItem('user')).userId;
         const response = await fetch(URI+`customer/${userId}/cart/remove/${productId}`,{
-                method:'PUT',
+            method:'PUT',
             headers:{
                 'Authorization': 'Bearer '+JSON.parse(sessionStorage.getItem('auth')).token
             }

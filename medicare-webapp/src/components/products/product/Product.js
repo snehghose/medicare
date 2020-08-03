@@ -28,14 +28,14 @@ class Product extends Component{
     render() {
         const product=this.props.product;
         return (
-            <div className="card mx-auto my-3">
+            <div className="card mx-auto mb-5">
                 {this.state.flag===true && this.state.productId===product.id && <div className="alert alert-success text-center m-3">Added to Cart</div>}
                 <div className="embed-responsive embed-responsive-4by3">
                     <img className="card-img-top embed-responsive-item" src={product.image} alt={product.name}/>
                 </div>
                 <div className="card-body">
                     <div className="row height">
-                    <div className="col-12 font-size-18 text-muted text-overflow">{product.name}</div>
+                        <div className="col-12 font-size-18 text-muted text-overflow">{product.name}</div>
                     </div>
                     <div className="row">
                         <small className="col-12 font-size-14 text-muted text-truncate">{product.manufacturer}</small>
@@ -54,7 +54,6 @@ class Product extends Component{
                                     {(product.discount.toFixed(1)%1===0.0?product.discount.toFixed(0):product.discount.toFixed(1))+'% OFF '}
                                 </span>
                             </>}
-                            
                         </div>
                     </div>
                     <button className="btn btn-info mt-2 w-100" onClick={this.handleAddToCart}>

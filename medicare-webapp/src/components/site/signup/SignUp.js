@@ -92,7 +92,6 @@ class SignUp extends Component {
     render(){
         var date=(new Date()).toISOString().substring(0,10);
         return(
-            <div className="middle">
             <div className="container mb-5">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
@@ -156,7 +155,6 @@ class SignUp extends Component {
                     </div>
                 </div>
             </div>
-        </div>
         )
     }
 }

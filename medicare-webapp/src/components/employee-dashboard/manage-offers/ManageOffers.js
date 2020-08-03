@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ManageOffer from './manage-offer/ManageOffer';
+import ManageOffer from './ManageOffer';
 import ProductService from '../../services/ProductService';
 import '../Employee.css'
 
@@ -110,7 +110,7 @@ class ManageOffers extends Component {
                     </li>
                 </ul>
             <div id="accordion2">
-                <ul className="list-group">
+                <ul className="list-group mb-5">
                     {this.state.discountedProducts.map((product)=>(
                         <ManageOffer key={product.name} product={product}/>
                     ))}

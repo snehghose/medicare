@@ -80,65 +80,63 @@ class Manager extends Component {
         return (<NotFound/>)
         var date=(new Date()).toISOString().substring(0,10)
         return (
-            <div classname="middle">
-                <div className="container mt-2 mb-5">
-                    <div className="row justify-content-center">
-                        <h3>Welcome Manager!</h3>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <h3>Welcome Manager!</h3>
+                </div>
+                <div className="mb-4">
+                    <hr/>
+                </div>
+                <div className="row mb-3">
+                    <div className="col-12 col-sm-7 col-md-5 col-lg-4 text-center my-auto">
+                        <h4>Manage Employees</h4>
                     </div>
-                    <div className="mb-4">
-                        <hr/>
+                    <div className="col-12 col-sm-1 col-md-4 col-lg-5"></div>
+                    <div className="col-12 col-sm-4 col-md-3 my-auto text-center pointer" data-toggle="collapse" data-target="#add-employee">
+                        <div className="btn btn-info">Add Employee</div>
                     </div>
-                    <div className="row mb-3">
-                        <div className="col-12 col-sm-7 col-md-5 col-lg-4 text-center my-auto">
-                            <h4>Manage Employees</h4>
-                        </div>
-                        <div className="col-12 col-sm-1 col-md-4 col-lg-5"></div>
-                        <div className="col-12 col-sm-4 col-md-3 my-auto text-center pointer" data-toggle="collapse" data-target="#add-employee">
-                            <div className="btn btn-info">Add Employee</div>
-                        </div>
-                    </div>
-                    <ul className="list-group">
-                        <li id="add-employee" className="list-group-item list-group-item-action collapse justify-content-between mt-1">
-                            <form>
-                                <div className="row">
-                                    <div className="col-12 col-md-6 mb-2">
-                                        <label for="firstName">First Name</label>
-                                        <input className="form-control" type="text" name="firstName" placeholder="Enter First Name" onChange={this.handleChange}></input>
-                                        {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
-                                    </div>
-                                    <div className="col-12 col-md-6 mb-2">
-                                        <label for="lastName">Last Name</label>
-                                        <input className="form-control" type="text" name="lastName" placeholder="Enter Last Name" onChange={this.handleChange}></input>
-                                        {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
-                                    </div>
+                </div>
+                <ul className="list-group">
+                    <li id="add-employee" className="list-group-item list-group-item-action collapse justify-content-between mt-1">
+                        <form>
+                            <div className="row">
+                                <div className="col-12 col-md-6 mb-2">
+                                    <label for="firstName">First Name</label>
+                                    <input className="form-control" type="text" name="firstName" placeholder="Enter First Name" onChange={this.handleChange}></input>
+                                    {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
                                 </div>
-                                <div className="row">
-                                    <div className="col-12 col-md-6 mb-2">
-                                        <label for="dateOfBirth">Date of Birth</label>
-                                        <input className="form-control" type="date" name="dateOfBirth" max={date} onChange={this.handleChange}></input>
-                                        {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
-                                    </div>
-                                    <div className="col-12 col-md-6 mb-2">
-                                        <label for="contact">Contact Number</label>
-                                        <input className="form-control" type="text" name="contact" placeholder="Enter Contact Number" onChange={this.handleChange}></input>
-                                        {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
-                                    </div>
+                                <div className="col-12 col-md-6 mb-2">
+                                    <label for="lastName">Last Name</label>
+                                    <input className="form-control" type="text" name="lastName" placeholder="Enter Last Name" onChange={this.handleChange}></input>
+                                    {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
                                 </div>
-                                <div className="form-group row">
-                                    <div className="col-12 col-md-6 mb-2">
-                                        <button className="btn btn-info" onClick={this.handleSubmit}>Add Employee</button>
-                                    </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6 mb-2">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <input className="form-control" type="date" name="dateOfBirth" max={date} onChange={this.handleChange}></input>
+                                    {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
                                 </div>
-                            </form>
-                        </li>
+                                <div className="col-12 col-md-6 mb-2">
+                                    <label for="contact">Contact Number</label>
+                                    <input className="form-control" type="text" name="contact" placeholder="Enter Contact Number" onChange={this.handleChange}></input>
+                                    {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <div className="col-12 col-md-6 mb-2">
+                                    <button className="btn btn-info" onClick={this.handleSubmit}>Add Employee</button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                <div id="accordion3">
+                    <ul className="list-group mb-5">
+                        {this.state.employees.map((employee)=>(
+                            <ManageEmployee key={employee.userId} employee={employee}/>
+                        ))}
                     </ul>
-                    <div id="accordion3">
-                        <ul className="list-group">
-                            {this.state.employees.map((employee)=>(
-                                <ManageEmployee key={employee.userId} employee={employee}/>
-                            ))}
-                        </ul>
-                    </div>
                 </div>
             </div>
         )

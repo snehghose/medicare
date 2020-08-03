@@ -12,8 +12,8 @@ class Categories extends Component{
 
     render() {
         return (
-            <div className="container my-5">
-                <div className="my-3">
+            <div className="container">
+                <div className="my-5">
                     <h3>Categories</h3>
                 </div>
                 <div className="row">

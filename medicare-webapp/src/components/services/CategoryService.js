@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthService from './AuthService';
 
 const URI="http://localhost:9000/easymeds-product-service/category";
@@ -23,7 +22,7 @@ class CategoryService {
             },
             body:JSON.stringify(category)
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')
@@ -38,7 +37,7 @@ class CategoryService {
             },
             body:JSON.stringify(category)
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')
@@ -49,7 +48,7 @@ class CategoryService {
         const response=await fetch(URI+`/${id}`, {
             method:'DELETE'
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')

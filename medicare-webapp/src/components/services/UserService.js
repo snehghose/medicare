@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthService from './AuthService';
 
 const URI="http://localhost:9000/authentication-service/"
@@ -77,7 +76,7 @@ class UserService {
                 'Authorization':'Bearer '+JSON.parse(sessionStorage.getItem('auth')).token
             }
         });
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')

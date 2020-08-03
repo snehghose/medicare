@@ -150,7 +150,7 @@ class ManageProducts extends Component {
                     </li>
                 </ul>
                 <div id="accordion1">
-                    <ul className="list-group">
+                    <ul className="list-group mb-5">
                         {products.map(product=>(
                             <ManageProduct key={product.id} product={product} categories={this.state.categories}/>
                         ))}

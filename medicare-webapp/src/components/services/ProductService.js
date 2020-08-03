@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthService from './AuthService';
 
 const URI = "http://localhost:9000/easymeds-product-service/product";
@@ -36,7 +35,7 @@ class ProductService {
             },
             body:JSON.stringify(product)
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')
@@ -51,7 +50,7 @@ class ProductService {
             },
             body:JSON.stringify(product)
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')
@@ -62,7 +61,7 @@ class ProductService {
         const response=await fetch(URI+`/${id}`, {
             method:'DELETE'
         })
-        if(response.status!=200) {
+        if(response.status!==200) {
             alert("Session Timeout")
             AuthService.logout()
             window.location.replace('/login')

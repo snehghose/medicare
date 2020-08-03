@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import AuthService from '../../services/AuthService';
-//import '../../App.css'
 
 class Header extends Component{
 
@@ -90,7 +89,8 @@ class Header extends Component{
                             {user!=null && (
                                 <li className="nav-item">
                                     <div className="nav-link text-light" style={{cursor:'pointer'}} onClick={this.handleLogout}>Logout</div>
-                                </li>)}
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </nav>

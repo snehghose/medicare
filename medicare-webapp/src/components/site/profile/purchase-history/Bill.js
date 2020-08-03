@@ -13,10 +13,10 @@ const Bill=(props)=>{
                         <div className="row">
                             <div className="col-6 text-secondary">
                                 <i className="material-icons">schedule</i>
-                            <span className="text-muted ml-1">Placed {str}</span>
+                                <span className="text-muted ml-1">Placed {str}</span>
                             </div>
                             <div className="col-6 text-success">
-                            <strong className="float-right">₹{bill.total.toFixed(2)}</strong>
+                                <strong className="float-right">₹{bill.total.toFixed(2)}</strong>
                             </div>
                         </div>
                         <hr/>

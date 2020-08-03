@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../Employee.css'
-import ProductService from '../../../services/ProductService';
+import '../Employee.css'
+import ProductService from '../../services/ProductService';
 
 class ManageOffer extends Component {
     constructor(props) {
@@ -56,7 +56,7 @@ class ManageOffer extends Component {
         return(
             <li className="list-group-item list-group-item-action">
                 <div className="row">
-                  <div className="col-5 my-auto text-size"><strong>{product.name}</strong></div>
+                    <div className="col-5 my-auto text-size"><strong>{product.name}</strong></div>
                     <div className="col-4 my-auto text-center">
                         <span className="badge badge-success text-success">{product.discount}% OFF</span>
                     </div>

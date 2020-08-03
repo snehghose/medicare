@@ -9,7 +9,7 @@ function Category(props){
         products:category.productList
     }
     return (
-        <Link className="card my-2" style={{textDecoration:'none'}} to={goto}>
+        <Link className="card mb-5" style={{textDecoration:'none'}} to={goto}>
             {category.maxDiscount>0 && 
                 <div className="pic">
                     <div className="text-light p-1 ml-2">
@@ -20,14 +20,13 @@ function Category(props){
                 </div>}
             <div className="card-body">
                 <img className="card-img-top" src={category.image} alt={category.name}/>
-                <div className="mt-1 text-center blockquote">
+                <div className="height p-2 text-center blockquote">
                     <strong>
                         {category.name}
                     </strong>
                 </div>
             </div>
         </Link>
-    
     )
 }
 

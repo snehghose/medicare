@@ -73,62 +73,60 @@ class Profile extends Component {
         return (<NotFound/>)
         const user=this.state.user;
         return(
-            <div className="middle">
-                <div className="container mb-5">
-                    <div className="row justify-content-center">
-                        <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                            <div className="row mb-3">
-                                <span className="ml-3">
-                                    <h4>My Profile</h4>
-                                </span>
-                                <span className="float-right ml-auto mr-3" onClick={this.handleEdit}>
-                                    <i className="material-icons">edit</i> Edit
-                                </span>
-                            </div>
-                            <div className="card mb-2">
-                                <div className="card-body">
-                                    <form>
-                                        {this.state.flag && (
-                                        <div className="alert alert-success text-center mb-3 border border-success">
-                                            Updated successfully
-                                        </div>)}
-                                        <div className="form-group row">
-                                            <div className="col-12">
-                                                <label>User ID</label>
-                                                <input className="form-control" type="text" name="userName" value={user.userId} disabled={true} onChange={this.handleChange}></input>
-                                            </div>
+            <div className="container mb-5">
+                <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+                        <div className="row mb-3">
+                            <span className="ml-3">
+                                <h4>My Profile</h4>
+                            </span>
+                            <span className="float-right ml-auto mr-3 text-primary" style={{cursor:`pointer`}} onClick={this.handleEdit}>
+                                <i className="material-icons">edit</i> Edit
+                            </span>
+                        </div>
+                        <div className="card mb-2">
+                            <div className="card-body">
+                                <form>
+                                    {this.state.flag && (
+                                    <div className="alert alert-success text-center mb-3 border border-success">
+                                        Updated successfully
+                                    </div>)}
+                                    <div className="form-group row">
+                                        <div className="col-12">
+                                            <label>User ID</label>
+                                            <input className="form-control" type="text" name="userName" value={user.userId} disabled={true} onChange={this.handleChange}></input>
                                         </div>
-                                        <div className="form-group row">
-                                            <div className="col-12 col-md-6">
-                                                <label>First Name</label>
-                                                <input className="form-control" type="text" name="firstName" value={user.firstName} disabled={this.state.disabled} onChange={this.handleChange}></input>
-                                                {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
-                                            </div>
-                                            <div className="col-12 col-md-6">
-                                                <label>Last Name</label>
-                                                <input className="form-control" type="text" name="lastName" value={user.lastName} disabled={this.state.disabled} onChange={this.handleChange}></input>
-                                                {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
-                                            </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <label>First Name</label>
+                                            <input className="form-control" type="text" name="firstName" value={user.firstName} disabled={this.state.disabled} onChange={this.handleChange}></input>
+                                            {this.state.errors.firstName.length>0 && <small className="text-danger">{this.state.errors.firstName}</small>}
                                         </div>
-                                        <div className="form-group row">
-                                            <div className="col-12 col-md-6">
-                                                <label>Date of Birth</label>
-                                                <input className="form-control" type="date" name="dateOfBirth" value={user.dateOfBirth} disabled={this.state.disabled} onChange={this.handleChange}></input>
-                                                {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
-                                            </div>
-                                            <div className="col-12 col-md-6">
-                                                <label>Contact Number</label>
-                                                <input className="form-control" type="text" name="contact" value={user.contact} disabled={this.state.disabled} onChange={this.handleChange}></input>
-                                                {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
-                                            </div>
+                                        <div className="col-12 col-md-6">
+                                            <label>Last Name</label>
+                                            <input className="form-control" type="text" name="lastName" value={user.lastName} disabled={this.state.disabled} onChange={this.handleChange}></input>
+                                            {this.state.errors.lastName.length>0 && <small className="text-danger">{this.state.errors.lastName}</small>}
                                         </div>
-                                        <div className="form-group row">
-                                            <div className="ml-3 mt-2">
-                                                <button className="btn btn-info" disabled={this.state.disabled} onClick={this.handleSave}>Save</button>
-                                            </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <div className="col-12 col-md-6">
+                                            <label>Date of Birth</label>
+                                            <input className="form-control" type="date" name="dateOfBirth" value={user.dateOfBirth} disabled={this.state.disabled} onChange={this.handleChange}></input>
+                                            {this.state.errors.dateOfBirth.length>0 && <small className="text-danger">{this.state.errors.dateOfBirth}</small>}
                                         </div>
-                                    </form>
-                                </div>
+                                        <div className="col-12 col-md-6">
+                                            <label>Contact Number</label>
+                                            <input className="form-control" type="text" name="contact" value={user.contact} disabled={this.state.disabled} onChange={this.handleChange}></input>
+                                            {this.state.errors.contact.length>0 && <small className="text-danger">{this.state.errors.contact}</small>}
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <div className="ml-3 mt-2">
+                                            <button className="btn btn-info" disabled={this.state.disabled} onClick={this.handleSave}>Save</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

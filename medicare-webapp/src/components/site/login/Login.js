@@ -56,38 +56,36 @@ class Login extends Component {
     
     render() {
         return (
-            <div className="middle">
-        <div className="container mb-5">
-            <div className="row justify-content-center">
-                <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                    <div className="row ml-1 mb-3">
-                        <h3>Login</h3>
-                    </div>
-                    <div className="card mb-2">
-                        <div className="card-body">
-                            <form onSubmit={this.handleLogin}>
-                                <div className="form-group">
-                                    <label>User ID</label>
-                                    <input className="form-control" type="text" name="userId" placeholder="Enter User ID" onChange={this.handleChange}></input>
-                                    {this.state.errors.userId.length>0 && <small className="text-danger">{this.state.errors.userId}</small>}
-                                </div>
-                                <div className="form-group">
-                                    <label>Password</label>
-                                    <input className="form-control" type="password" name="password" placeholder="Enter Password" onChange={this.handleChange}></input>
-                                    {this.state.errors.password.length>0 && <small className="text-danger">{this.state.errors.password}</small>}
-                                </div>
-                                <div className="form-group">
-                                    <input className="btn btn-info" type="submit" value="Login"/>
-                                </div>
-                            </form>
+            <div className="container mb-5">
+                <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+                        <div className="row ml-1 mb-3">
+                            <h3>Login</h3>
+                        </div>
+                        <div className="card mb-2">
+                            <div className="card-body">
+                                <form onSubmit={this.handleLogin}>
+                                    <div className="form-group">
+                                        <label>User ID</label>
+                                        <input className="form-control" type="text" name="userId" placeholder="Enter User ID" onChange={this.handleChange}></input>
+                                        {this.state.errors.userId.length>0 && <small className="text-danger">{this.state.errors.userId}</small>}
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Password</label>
+                                        <input className="form-control" type="password" name="password" placeholder="Enter Password" onChange={this.handleChange}></input>
+                                        {this.state.errors.password.length>0 && <small className="text-danger">{this.state.errors.password}</small>}
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="btn btn-info" type="submit" value="Login"/>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
-    )
-        }
+        )
     }
+}
 
 export default Login;
