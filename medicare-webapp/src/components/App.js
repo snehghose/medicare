@@ -13,7 +13,6 @@ import ChangePassword from './site/profile/ChangePassword';
 import PurchaseHistory from './site/profile/purchase-history/PurchaseHistory';
 import './App.css'
 import NotFound from './site/not-found/NotFound';
-import img from '../assets/images/bg2.jpg'
 
 class App extends Component {
     render() {
